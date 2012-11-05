@@ -1,7 +1,10 @@
 <?php
 
-// consultar / pedir uma chave a um serviço externo
+// consultar pedir uma chave a um serviço externo
 
+$a = file_get_contents("http://localhost/SIR1213/EURO1400/EuroKeyWS.php");
+
+$objectoPHP = json_decode($a);
 
 
 
@@ -54,9 +57,7 @@ function keyAsXML($n,$s) {
 	</head>
 	<body>
 		<h1>A Chave Vencedora</h1>
-		<?php echo keyAsHTML($numbers,$stars);?>
-		<?php echo keyAsXML($numbers,$stars);?>
+		<?php echo keyAsHTML($objectoPHP->data->$numbers,$objectoPHP->data->$stars);?>
+		<!--?php echo keyAsXML($numbers,$stars);?-->
 	</body>
 </html>
-
-?>

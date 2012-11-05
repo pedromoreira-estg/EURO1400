@@ -1,5 +1,4 @@
 <?php
-
 	include_once 'CEuroKey.php';
     
     class CEuroKeyWS {
@@ -7,9 +6,10 @@
     	public $status;
     	public $data;
 		
-		public function __construct() {
+		public function __construct($nn = CEuroKey::NN,$ns = CEuroKey::NS) {
 			
-		$this->data = new CEuroKey();
+		$this->data = new CEuroKey($nn,$ns);
+		
 		if ($this->data) {
 				$this->status = "ok";
 		} else {
@@ -22,8 +22,5 @@
 			return json_encode($this);
 		}
     }
-	
-	$tmp = new CEuroKeyWS();
-	echo $tmp->asJSON();
 	
 ?>
