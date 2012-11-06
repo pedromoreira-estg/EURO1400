@@ -1,9 +1,11 @@
 <?php
+include_once 'CExtractor.php';
 
-// consultar / pedir uma chave a um serviço externo
+$en = new CExtractor(5,1,50);
+$es = new CExtractor(2,1,11);
 
-
-
+$numbers = $en->extract();
+$stars   = $es->extract();
 
 function keyAsHTML($n,$s) {
 	$html = "";
@@ -59,4 +61,4 @@ function keyAsXML($n,$s) {
 	</body>
 </html>
 
-?>
+/
